@@ -29,7 +29,7 @@ function Cyclewaymap(props) {
     fetchData();
 
     console.log(state);
-  }, []);
+  }, [props.change]);
 
   const handleClick = (feature) => {
     props.setStateToFeature(feature);

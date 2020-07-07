@@ -9,7 +9,7 @@ export default function MaterialTableDemo(props) {
 
   const fetchData = async () => {
     const result = await axios.get(
-      "process.env.REACT_APP_HEROKU_URL/projects/"
+      `${process.env.REACT_APP_HEROKU_URL}/projects/`
     );
     setState({ columns: state.columns, data: result.data });
   };

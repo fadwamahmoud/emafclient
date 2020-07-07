@@ -15,6 +15,7 @@ import {
   Container,
   Row,
   Col,
+  Navbar,
 } from "reactstrap";
 
 // core components
@@ -101,36 +102,6 @@ class LandingPage extends React.Component {
                       </Col>
                     </Row>
                   </Col>
-
-                  {/* <Col className="mt-lg-5" md="5">
-                    <div className="pl-md-5">
-                      <h1>
-                        Large <br />
-                        Achivements
-                      </h1>
-                      <p>
-                        I should be capable of drawing a single stroke at the
-                        present moment; and yet I feel that I never was a
-                        greater artist than now.
-                      </p>
-                      <br />
-                      <p>
-                        When, while the lovely valley teems with vapour around
-                        me, and the meridian sun strikes the upper surface of
-                        the impenetrable foliage of my trees, and but a few
-                        stray.
-                      </p>
-                      <br />
-                      <a
-                        className="font-weight-bold text-info mt-5"
-                        href="#pablo"
-                        onClick={(e) => e.preventDefault()}
-                      >
-                        Show all{" "}
-                        <i className="tim-icons icon-minimal-right text-info" />
-                      </a>
-                    </div>
-                  </Col> */}
                 </Row>
 
                 <Row

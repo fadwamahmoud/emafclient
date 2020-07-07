@@ -8,13 +8,17 @@ import { Card, CardBody } from "reactstrap";
 
 const Dataentrystormwater = (props) => {
   const [state, setState] = useState([]);
+  const [change, setChange] = useState(false);
 
   const setStateToFeature = (feature) => {
     // 3: state is the selected feature
 
     setState(feature);
   };
-  console.log(props);
+  const changeFn = () => {
+    console.log("change");
+    setChange(true);
+  };
   return (
     <div>
       <ExamplesNavbar />
@@ -23,13 +27,14 @@ const Dataentrystormwater = (props) => {
           <CardBody>
             <Stormwatermap
               setStateToFeature={setStateToFeature}
-              center={[31.6306, 30.0917]}
+              center={[31.64086, 30.102094]}
               style="mapbox://styles/asma163/ckbgkzh7457611io4q6k872re"
               height="39.5vw"
+              change={change}
             />
           </CardBody>
         </Card>
-        <Stormwaterform stateFromDataEntry={state} />
+        <Stormwaterform change={changeFn} stateFromDataEntry={state} />
       </div>
       <Footer />
     </div>

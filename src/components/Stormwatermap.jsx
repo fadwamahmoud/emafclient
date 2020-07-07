@@ -29,7 +29,7 @@ function Stormwatermap(props) {
     fetchData();
 
     console.log(state);
-  }, []);
+  }, [props.change]);
 
   const handleClick = (feature) => {
     props.setStateToFeature(feature);
@@ -44,7 +44,7 @@ function Stormwatermap(props) {
     <div>
       <Map
         center={props.center}
-        zoom={[13]}
+        zoom={[14.5]}
         style={props.style} // eslint-disable-line
         containerStyle={{
           height: props.height,
@@ -56,7 +56,7 @@ function Stormwatermap(props) {
           id="marker"
           paint={{
             "circle-color": "#e14eca",
-            "circle-stroke-width": 1,
+            "circle-stroke-width": 3,
             "circle-stroke-color": "#fff",
             "circle-stroke-opacity": 1,
           }}

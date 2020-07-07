@@ -61,6 +61,8 @@ const ProjectsMap = (props) => {
           marginBottom: "5%",
           display: "flex",
           justifyContent: "center",
+          marginLeft: "auto",
+          marginRight:"auto",
         }}
       >
         <Card style={{ width: "80%", height: "" }}>

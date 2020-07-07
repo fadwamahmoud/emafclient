@@ -115,9 +115,8 @@ class LoginPage extends React.Component {
   render() {
     return (
       <>
-        <Container id="container">
-          <Form method="post" onSubmit={this.handleSubmit} className="form">
-            <Card className="card-register" id="loginForm">
+          <Form method="post" onSubmit={this.handleSubmit} id="loginForm">
+            <Card className="card-register" id= "FormCard" >
               <CardHeader>
                 {/* <CardImg
                             alt="..."
@@ -216,7 +215,6 @@ class LoginPage extends React.Component {
             </Card>
           </Form>
           <div className="register-bg" />
-        </Container>
         {/* </div>
           </div>
         </div> */}

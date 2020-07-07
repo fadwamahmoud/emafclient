@@ -16,7 +16,9 @@ export default function MaterialTableDemo() {
   });
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("process.env.REACT_APP_HEROKU_URL/users/");
+      const result = await axios.get(
+        `${process.env.REACT_APP_HEROKU_URL}/users/`
+      );
 
       setState({ columns: state.columns, data: result.data });
     };

@@ -21,13 +21,14 @@ import {
   faFacebook,
   faInstagram,
   faTwitter,
+  faAngellist,
 } from "@fortawesome/free-brands-svg-icons";
 
 class PagesNavbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      collapseOpen: false,
+      collapseOpen: true,
       color: "navbar-transparent",
     };
   }
@@ -78,26 +79,38 @@ class PagesNavbar extends React.Component {
         color-on-scroll="100"
         expand="lg"
       >
-        <NavbarBrand to={"/"} id="navbar-brand" tag={Link}>
-          <span style={{ fontSize: "30px" }}>EMAF• </span>
-        </NavbarBrand>
-
         <Container>
+          <div className="navbar-translate">
+          <NavbarBrand to={"/"} id="navbar-brand" tag={Link}>
+          <span style={{ fontSize: "30px" }}>EMAF• </span>
+          </NavbarBrand>
+            <UncontrolledTooltip placement="bottom" target="navbar-brand">
+              Designed and Coded by GIS Developer Team
+            </UncontrolledTooltip>
+            <button
+              aria-expanded={this.state.collapseOpen}
+              className="navbar-toggler navbar-toggler"
+              onClick={this.toggleCollapse}
+            >
+              <span className="navbar-toggler-bar bar1" />
+              <span className="navbar-toggler-bar bar2" />
+              <span className="navbar-toggler-bar bar3" />
+            </button>
+          </div>
+
           <Collapse
             className={"justify-content-end " + this.state.collapseOut}
             navbar
             isOpen={this.state.collapseOpen}
-            onExiting={this.onCollapseExiting}
-            onExited={this.onCollapseExited}
           >
             <div className="navbar-collapse-header">
               <Row>
                 <Col md="3">
-                  <h1 className="title">BLK•</h1>
+                  <h1 className="title">EMAF•</h1>
                 </Col>
 
                 <Col className="collapse-close text-right" xs="6">
-                  <button
+                <button
                     aria-expanded={this.state.collapseOpen}
                     className="navbar-toggler"
                     onClick={this.toggleCollapse}
@@ -117,7 +130,6 @@ class PagesNavbar extends React.Component {
                   title="Follow us on Twitter"
                 >
                   <FontAwesomeIcon icon={faTwitter} />
-                  <p className="d-lg-none d-xl-none">Twitter</p>
                 </NavLink>
               </NavItem>
               <NavItem className="p-0">
@@ -129,7 +141,6 @@ class PagesNavbar extends React.Component {
                   title="Like us on Facebook"
                 >
                   <FontAwesomeIcon icon={faFacebook} />
-                  <p className="d-lg-none d-xl-none">Facebook</p>
                 </NavLink>
               </NavItem>
               <NavItem className="p-0">
@@ -141,7 +152,6 @@ class PagesNavbar extends React.Component {
                   title="Follow us on Instagram"
                 >
                   <FontAwesomeIcon icon={faInstagram} />
-                  <p className="d-lg-none d-xl-none">Instagram</p>
                 </NavLink>
               </NavItem>
 
@@ -155,6 +165,7 @@ class PagesNavbar extends React.Component {
                 >
                   Projects
                 </NavLink>
+                
               ) : null}
               {localStorage.getItem("token") &&
               localStorage.getItem("role") === "Admin" ? (
@@ -162,6 +173,7 @@ class PagesNavbar extends React.Component {
                 activeclassname="active">
                   Departments
                 </NavLink>
+                
               ) : null}
               {localStorage.getItem("token") &&
               localStorage.getItem("role") === "DataEntry" ? (
@@ -173,6 +185,7 @@ class PagesNavbar extends React.Component {
                 >
                   Public Transport
                 </NavLink>
+                
               ) : null}
               {localStorage.getItem("token") &&
               localStorage.getItem("role") === "DataEntry" ? (
@@ -184,6 +197,7 @@ class PagesNavbar extends React.Component {
                 >
                   Footpath
                 </NavLink>
+                
               ) : null}
               {localStorage.getItem("token") &&
               localStorage.getItem("role") === "DataEntry" ? (
@@ -195,6 +209,7 @@ class PagesNavbar extends React.Component {
                 >
                   Cycleway
                 </NavLink>
+                
               ) : null}
               {localStorage.getItem("token") &&
               localStorage.getItem("role") === "DataEntry" ? (
@@ -206,6 +221,7 @@ class PagesNavbar extends React.Component {
                 >
                   Storm water
                 </NavLink>
+                
               ) : null}
               {localStorage.getItem("token") &&
               localStorage.getItem("role") === "DecisionMaker" ? (
@@ -213,6 +229,7 @@ class PagesNavbar extends React.Component {
                 activeclassname="active">
                   Public Transport
                 </NavLink>
+                
               ) : null}
               {localStorage.getItem("token") &&
               localStorage.getItem("role") === "DecisionMaker" ? (
@@ -220,6 +237,7 @@ class PagesNavbar extends React.Component {
                 activeclassname="active">
                   Footpath
                 </NavLink>
+                
               ) : null}
               {localStorage.getItem("token") &&
               localStorage.getItem("role") === "DecisionMaker" ? (
@@ -227,6 +245,7 @@ class PagesNavbar extends React.Component {
                 activeclassname="active">
                   Cycleway
                 </NavLink>
+                
               ) : null}
               {localStorage.getItem("token") &&
               localStorage.getItem("role") === "DecisionMaker" ? (
@@ -234,6 +253,7 @@ class PagesNavbar extends React.Component {
                 activeclassname="active">
                   Storm water
                 </NavLink>
+                
               ) : null}
               <NavLink
                 tag={Link}
@@ -252,33 +272,24 @@ class PagesNavbar extends React.Component {
                 Contact us
               </NavLink>
               {localStorage.getItem("token") ? (
-                <NavItem>
-                  <Link to={"/"}>
-                    <Button
-                      className="nav-link d-none d-lg-block"
-                      color="primary"
-                      target="_blank"
-                      onClick={() => {
-                        localStorage.removeItem("token");
-                        localStorage.removeItem("role");
-                      }}
-                    >
+                  <NavLink tag={Link}
+                          to="/"
+                          className="inactive"
+                          activeclassname="active"
+                          onClick={() => {
+                            localStorage.removeItem("token");
+                            localStorage.removeItem("role");
+                          }}>
                       Logout
-                    </Button>
-                  </Link>
-                </NavItem>
+                  </NavLink>
               ) : (
-                <NavItem style={{ marginRight: "5vw" }}>
-                  <Link to={"/login"}>
-                    <Button
-                      className="nav-link d-none d-lg-block"
-                      color="primary"
-                      target="_blank"
-                    >
+                  <NavLink tag={Link}
+                          to="/login"
+                          className="inactive"
+                          activeclassname="active"
+                          color="primary">
                       Login
-                    </Button>
-                  </Link>
-                </NavItem>
+                  </NavLink>
               )}
             </Nav>
           </Collapse>

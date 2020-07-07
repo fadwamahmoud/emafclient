@@ -21,7 +21,7 @@ const AdminProjects = (props) => {
 
   const fetchData = async () => {
     const result = await axios.get(
-      "process.env.REACT_APP_HEROKU_URL/projects/"
+      `${process.env.REACT_APP_HEROKU_URL}/projects/`
     );
     setState(result.data);
     console.log(result.data);

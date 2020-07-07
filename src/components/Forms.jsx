@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import confirm from "reactstrap-confirm";
 import {
   FormGroup,
@@ -9,9 +9,10 @@ import {
   CardBody,
   CardHeader,
   CardFooter,
+  Label,
 } from "reactstrap";
 import axios from "axios";
-const Forms = ({ stateFromDataEntry }) => {
+const Forms = ({ stateFromDataEntry, change }) => {
   const [state, setState] = useState({});
 
   const inputHandler = (e) => {
@@ -34,14 +35,19 @@ const Forms = ({ stateFromDataEntry }) => {
       axios
         .post(`${process.env.REACT_APP_HEROKU_URL}/footpath/add`, data)
         .then(({ data }) => {
-          console.log(data);
+          setState({});
+          change();
         })
         .catch((err) => {
           console.log(err);
         });
     }
   };
-
+  useEffect(() => {
+    setState({
+      ...stateFromDataEntry,
+    });
+  }, [stateFromDataEntry]);
   return (
     <div id="xx">
       <Card>
@@ -52,7 +58,12 @@ const Forms = ({ stateFromDataEntry }) => {
           <CardBody>
             <div className="form-row">
               <FormGroup className="col-md-4">
+                <Label className="mr-sm-2" for="asset_name">
+                  Asset:
+                </Label>
                 <Input
+                  value={state.asset_name || ""}
+                  disabled={stateFromDataEntry.geometry ? false : true}
                   type="text"
                   placeholder="Asset Name"
                   id="asset_name"
@@ -61,7 +72,12 @@ const Forms = ({ stateFromDataEntry }) => {
                 />
               </FormGroup>
               <FormGroup className="col-md-4">
+                <Label className="mr-sm-2" for="surveyorname">
+                  Surveyor:
+                </Label>
                 <Input
+                  value={state.surveyorname || ""}
+                  disabled={stateFromDataEntry.geometry ? false : true}
                   type="text"
                   placeholder="Employee Name"
                   id="surveyorname"
@@ -70,7 +86,12 @@ const Forms = ({ stateFromDataEntry }) => {
                 />
               </FormGroup>
               <FormGroup className="col-md-4">
+                <Label className="mr-sm-2" for="Rating_Dat">
+                  Date:
+                </Label>
                 <Input
+                  value={state.Rating_Dat || ""}
+                  disabled={stateFromDataEntry.geometry ? false : true}
                   type="date"
                   name="Rating_Dat"
                   id="Rating_Dat"
@@ -81,7 +102,12 @@ const Forms = ({ stateFromDataEntry }) => {
             </div>
             <div className="form-row">
               <FormGroup className="col-md-4">
+                <Label className="mr-sm-2" for="cracks">
+                  Cracks:
+                </Label>
                 <Input
+                  value={state.cracks || ""}
+                  disabled={stateFromDataEntry.geometry ? false : true}
                   type="text"
                   name="cracks"
                   id="cracks"
@@ -90,7 +116,12 @@ const Forms = ({ stateFromDataEntry }) => {
                 />
               </FormGroup>
               <FormGroup className="col-md-4">
+                <Label className="mr-sm-2" for="pothole">
+                  Potholes:
+                </Label>
                 <Input
+                  value={state.pothole || ""}
+                  disabled={stateFromDataEntry.geometry ? false : true}
                   type="text"
                   name="pothole"
                   id="pothole"
@@ -99,7 +130,12 @@ const Forms = ({ stateFromDataEntry }) => {
                 />
               </FormGroup>
               <FormGroup className="col-md-4">
+                <Label className="mr-sm-2" for="erosion">
+                  Erosion:
+                </Label>
                 <Input
+                  value={state.erosion || ""}
+                  disabled={stateFromDataEntry.geometry ? false : true}
                   type="text"
                   name="erosion"
                   id="erosion"
@@ -109,8 +145,13 @@ const Forms = ({ stateFromDataEntry }) => {
               </FormGroup>
             </div>
             <div className="form-row">
-              <FormGroup className="col-md-8">
+              <FormGroup className="col-md-4">
+                <Label className="mr-sm-2" for="slipperySurface">
+                  Slippery Surface:
+                </Label>
                 <Input
+                  value={state.slipperySurface || ""}
+                  disabled={stateFromDataEntry.geometry ? false : true}
                   type="text"
                   name="slipperySurface"
                   id="slipperySurface"
@@ -118,10 +159,14 @@ const Forms = ({ stateFromDataEntry }) => {
                   placeholder="Slippery Surface"
                 />
               </FormGroup>
-            </div>
-            <div className="form-row">
-              <FormGroup className="col-md-8">
+
+              <FormGroup className="col-md-4">
+                <Label className="mr-sm-2" for="fallenBranches">
+                  Fallen Branches:
+                </Label>
                 <Input
+                  value={state.fallenBranches || ""}
+                  disabled={stateFromDataEntry.geometry ? false : true}
                   type="text"
                   name="fallenBranches"
                   id="fallenBranches"
@@ -129,10 +174,14 @@ const Forms = ({ stateFromDataEntry }) => {
                   placeholder="Fallen Branches percentage"
                 />
               </FormGroup>
-            </div>
-            <div className="form-row">
-              <FormGroup className="col-md-8">
+
+              <FormGroup className="col-md-4">
+                <Label className="mr-sm-2" for="QualityOfCurbing">
+                  Quality Of Curbing:
+                </Label>
                 <Input
+                  value={state.QualityOfCurbing || ""}
+                  disabled={stateFromDataEntry.geometry ? false : true}
                   type="text"
                   name="QualityOfCurbing"
                   id="QualityOfCurbing"
@@ -142,8 +191,13 @@ const Forms = ({ stateFromDataEntry }) => {
               </FormGroup>
             </div>
             <div className="form-row">
-              <FormGroup className="col-md-6">
+              <FormGroup className="col-md-4">
+                <Label className="mr-sm-2" for="degreeOfCleanliness">
+                  Degree Of Cleanliness:
+                </Label>
                 <Input
+                  value={state.degreeOfCleanliness || ""}
+                  disabled={stateFromDataEntry.geometry ? false : true}
                   type="text"
                   name="degreeOfCleanliness"
                   id="degreeOfCleanliness"
@@ -152,8 +206,13 @@ const Forms = ({ stateFromDataEntry }) => {
                 />
               </FormGroup>
 
-              <FormGroup className="col-md-6">
+              <FormGroup className="col-md-4">
+                <Label className="mr-sm-2" for="conditionofDrains">
+                  Condition of Drains:
+                </Label>
                 <Input
+                  value={state.conditionofDrains || ""}
+                  disabled={stateFromDataEntry.geometry ? false : true}
                   type="text"
                   name="conditionofDrains"
                   id="conditionofDrains"
@@ -161,10 +220,13 @@ const Forms = ({ stateFromDataEntry }) => {
                   placeholder="Condition of drains"
                 />
               </FormGroup>
-            </div>
-            <div className="form-row">
-              <FormGroup className="col-md-6">
+              <FormGroup className="col-md-4">
+                <Label className="mr-sm-2" for="pedestrians_Sainage_Condition">
+                  Condition of sainage:
+                </Label>
                 <Input
+                  value={state.pedestrians_Sainage_Condition || ""}
+                  disabled={stateFromDataEntry.geometry ? false : true}
                   type="text"
                   name="pedestrians_Sainage_Condition"
                   id="pedestrians_Sainage_Condition"
@@ -172,8 +234,15 @@ const Forms = ({ stateFromDataEntry }) => {
                   placeholder="Condition of sainage"
                 />
               </FormGroup>
-              <FormGroup className="col-md-6">
+            </div>
+            <div className="form-row">
+              <FormGroup className="col-md-4">
+                <Label className="mr-sm-2" for="general_co">
+                  General Condition:
+                </Label>
                 <Input
+                  value={state.general_co || ""}
+                  disabled={stateFromDataEntry.geometry ? false : true}
                   type="text"
                   name="general_co"
                   id="general_co"
@@ -181,10 +250,14 @@ const Forms = ({ stateFromDataEntry }) => {
                   placeholder="General Condition"
                 />
               </FormGroup>
-            </div>
-            <div className="form-row">
-              <FormGroup className="col-md-6">
+
+              <FormGroup className="col-md-4">
+                <Label className="mr-sm-2" for="Oper_statu">
+                  Operation Status:
+                </Label>
                 <Input
+                  value={state.Oper_statu || ""}
+                  disabled={stateFromDataEntry.geometry ? false : true}
                   type="text"
                   name="Oper_statu"
                   id="Oper_statu"
@@ -192,8 +265,13 @@ const Forms = ({ stateFromDataEntry }) => {
                   placeholder="Operation Status"
                 />
               </FormGroup>
-              <FormGroup className="col-md-6">
+              <FormGroup className="col-md-4">
+                <Label className="mr-sm-2" for="Asset_age">
+                  Asset age:
+                </Label>
                 <Input
+                  value={state.Asset_age || ""}
+                  disabled={stateFromDataEntry.geometry ? false : true}
                   type="text"
                   name="Asset_age"
                   id="Asset_age"
@@ -204,7 +282,12 @@ const Forms = ({ stateFromDataEntry }) => {
             </div>
             <div className="form-row">
               <FormGroup className="col-md-6">
+                <Label className="mr-sm-2" for="Overall_ra">
+                  Overall Rating:
+                </Label>
                 <Input
+                  value={state.Overall_ra || ""}
+                  disabled={stateFromDataEntry.geometry ? false : true}
                   type="text"
                   name="Overall_ra"
                   id="Overall_ra"
@@ -213,7 +296,12 @@ const Forms = ({ stateFromDataEntry }) => {
                 />
               </FormGroup>
               <FormGroup className="col-md-6">
+                <Label className="mr-sm-2" for="Remain_lif">
+                  Remaining Life:
+                </Label>
                 <Input
+                  value={state.Remain_lif || ""}
+                  disabled={stateFromDataEntry.geometry ? false : true}
                   type="text"
                   name="Remain_lif"
                   id="Remain_lif"

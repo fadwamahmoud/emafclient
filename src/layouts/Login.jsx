@@ -6,7 +6,6 @@ import "./layoutStyles.css";
 const Login = (props) => {
   return (
     <>
-      <ExamplesNavbar/>
       <div class="background-image"></div>
       <div class="content">
         <ExamplesNavbar />

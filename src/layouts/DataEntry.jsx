@@ -8,13 +8,17 @@ import { Card, CardBody } from "reactstrap";
 
 const DataEntry = (props) => {
   const [state, setState] = useState([]);
+  const [change, setChange] = useState(false);
 
   const setStateToFeature = (feature) => {
     // 3: state is the selected feature
 
     setState(feature);
   };
-  console.log(props);
+  const changeFn = () => {
+    console.log("change");
+    setChange(true);
+  };
   return (
     <div>
       <ExamplesNavbar />
@@ -26,10 +30,11 @@ const DataEntry = (props) => {
               style="mapbox://styles/asma163/ckbgkzh7457611io4q6k872re"
               height="39.5vw"
               center={[31.639448, 30.101757]}
+              change={change}
             />
           </CardBody>
         </Card>
-        <Forms stateFromDataEntry={state} />
+        <Forms change={changeFn} stateFromDataEntry={state} />
       </div>
       <Footer />
     </div>

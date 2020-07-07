@@ -31,7 +31,7 @@ function Publictransportmap(props) {
     fetchData();
 
     console.log(state);
-  }, []);
+  }, [props.change]);
 
   const handleClick = (feature) => {
     props.setStateToFeature(feature);
@@ -58,7 +58,7 @@ function Publictransportmap(props) {
           id="marker"
           paint={{
             "circle-color": "#e14eca",
-            "circle-stroke-width": 1,
+            "circle-stroke-width": 3,
             "circle-stroke-color": "#fff",
             "circle-stroke-opacity": 1,
           }}
