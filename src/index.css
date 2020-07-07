@@ -1,0 +1,34 @@
+.container {
+  margin-left: 0px;
+  margin-right: 0;
+}
+
+.input {
+  width: 60%;
+  height: 40%;
+  padding-right: 0%;
+  margin: 0px;
+  box-sizing: border-box;
+  margin-left: 55%;
+  margin-top: 3%;
+}
+.mapboxgl-canvas {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  margin-left: 1%;
+  border-radius: 10px;
+}
+.mapMarkerStyle {
+  background-color:purple;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: block;
+  left: -0.5rem;
+  top: -0.5rem;
+  position: relative;
+  border-radius: 1.5rem 1.5rem 0;
+  transform: rotate(45deg);
+  border: 1px solid #FFFFFF;
+  cursor: pointer;
+}
