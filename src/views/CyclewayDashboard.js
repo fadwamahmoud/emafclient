@@ -56,7 +56,7 @@ class Dashboard extends React.Component {
   };
   async componentDidMount() {
     await axios
-      .get(`${REACT_APP_HEROKU_URL}/cycleway/`, {})
+      .get(`${process.env.REACT_APP_HEROKU_URL}/cycleway/`, {})
       .then((res) => {
         console.log(res.data);
         this.setState({ geojson: res.data });

@@ -38,7 +38,10 @@ const ProjectsMap = (props) => {
   useEffect(() => {
     //TODO currentUser in context or redux
     const fetchData = async () => {
-      const { data } = await axios.get(`${REACT_APP_HEROKU_URL}/projects`, {});
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_HEROKU_URL}/projects`,
+        {}
+      );
       console.log(data);
       setState(data);
     };

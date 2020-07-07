@@ -32,7 +32,7 @@ const Publictransportform = ({ stateFromDataEntry }) => {
       console.log(data);
 
       axios
-        .post(`${REACT_APP_HEROKU_URL}/publictrans/add`, data)
+        .post(`${process.env.REACT_APP_HEROKU_URL}/publictrans/add`, data)
         .then(({ data }) => {
           console.log(data);
         })

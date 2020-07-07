@@ -32,7 +32,7 @@ class Dashboard extends React.Component {
   };
   async componentDidMount() {
     await axios
-      .get(`${REACT_APP_HEROKU_URL}/publictrans/`, {})
+      .get(`${process.env.REACT_APP_HEROKU_URL}/publictrans/`, {})
       .then((res) => {
         console.log(res.data);
         this.setState({ geojson: res.data });

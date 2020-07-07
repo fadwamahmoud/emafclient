@@ -8,7 +8,9 @@ export default function MaterialTableDemo(props) {
   const { state, setState } = props;
 
   const fetchData = async () => {
-    const result = await axios.get("REACT_APP_HEROKU_URL/projects/");
+    const result = await axios.get(
+      "process.env.REACT_APP_HEROKU_URL/projects/"
+    );
     setState({ columns: state.columns, data: result.data });
   };
 
@@ -20,7 +22,7 @@ export default function MaterialTableDemo(props) {
 
   async function addProject(newProject) {
     const result = await axios.post(
-      `${REACT_APP_HEROKU_URL}/projects/add`,
+      `${process.env.REACT_APP_HEROKU_URL}/projects/add`,
       newProject
     );
     setState({ data: [...state.data, result.data] });

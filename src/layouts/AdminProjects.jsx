@@ -20,7 +20,9 @@ const AdminProjects = (props) => {
   const [state, setState] = useState([]);
 
   const fetchData = async () => {
-    const result = await axios.get("REACT_APP_HEROKU_URL/projects/");
+    const result = await axios.get(
+      "process.env.REACT_APP_HEROKU_URL/projects/"
+    );
     setState(result.data);
     console.log(result.data);
     console.log("state is changed");
@@ -32,21 +34,21 @@ const AdminProjects = (props) => {
 
   async function addProject(newProject) {
     axios
-      .post(`${REACT_APP_HEROKU_URL}/projects/add`, newProject)
+      .post(`${process.env.REACT_APP_HEROKU_URL}/projects/add`, newProject)
       .then((data) => {
         fetchData();
       });
   }
   async function deleteProject(id) {
     const result = await axios.get(
-      `${REACT_APP_HEROKU_URL}/projects/delete/${id}`
+      `${process.env.REACT_APP_HEROKU_URL}/projects/delete/${id}`
     );
     fetchData();
   }
 
   async function editProject(id, updatedProject) {
     const { data } = await axios.patch(
-      `${REACT_APP_HEROKU_URL}/projects/edit/${id}`,
+      `${process.env.REACT_APP_HEROKU_URL}/projects/edit/${id}`,
       updatedProject
     );
   }

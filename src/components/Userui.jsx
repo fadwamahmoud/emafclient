@@ -16,7 +16,7 @@ export default function MaterialTableDemo() {
   });
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("REACT_APP_HEROKU_URL/users/");
+      const result = await axios.get("process.env.REACT_APP_HEROKU_URL/users/");
 
       setState({ columns: state.columns, data: result.data });
     };
@@ -25,7 +25,7 @@ export default function MaterialTableDemo() {
 
   async function addUser(newuser) {
     const result = await axios.post(
-      `${REACT_APP_HEROKU_URL}/users/register`,
+      `${process.env.REACT_APP_HEROKU_URL}/users/register`,
       newuser
     );
     if (result.data.message) {
@@ -36,14 +36,16 @@ export default function MaterialTableDemo() {
   }
 
   async function deleteUser(id) {
-    const result = await axios.delete(`REACT_APP_HEROKU_URL/users/${id}`);
+    const result = await axios.delete(
+      `process.env.REACT_APP_HEROKU_URL/users/${id}`
+    );
     console.log(result.data);
     setState({ columns: state.columns, data: result.data });
   }
 
   async function editUser(id, editedUser) {
     const result = await axios.patch(
-      `${REACT_APP_HEROKU_URL}/users/${id}`,
+      `${process.env.REACT_APP_HEROKU_URL}/users/${id}`,
       editedUser
     );
 

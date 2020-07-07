@@ -61,7 +61,7 @@ class LoginPage extends React.Component {
       };
       // login request
       axios
-        .post(`${REACT_APP_HEROKU_URL}/users/login`, user)
+        .post(`${process.env.REACT_APP_HEROKU_URL}/users/login`, user)
         .then((response) => {
           console.log(response);
           localStorage.setItem("token", response.data.token);

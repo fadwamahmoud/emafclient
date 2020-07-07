@@ -19,7 +19,7 @@ function Publictransportmap(props) {
   useEffect(() => {
     const fetchData = async () => {
       await axios
-        .get(`${REACT_APP_HEROKU_URL}/publictrans/`, {})
+        .get(`${process.env.REACT_APP_HEROKU_URL}/publictrans/`, {})
         .then((res) => {
           console.log(res.data);
           setState(res.data);

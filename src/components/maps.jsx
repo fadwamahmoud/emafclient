@@ -18,7 +18,7 @@ function Maps(props) {
   useEffect(() => {
     const fetchData = async () => {
       await axios
-        .get(`${REACT_APP_HEROKU_URL}/footpath/`, {})
+        .get(`${process.env.REACT_APP_HEROKU_URL}/footpath/`, {})
         .then((res) => {
           console.log(res.data);
           setState(res.data);

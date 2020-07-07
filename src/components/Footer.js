@@ -61,18 +61,16 @@ class Footer extends React.Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to="/landing-page" tag={Link}>
-                    Landing
+                  <NavLink href="http://iti.gov.eg/">ITI</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="https://en.wikipedia.org/wiki/Asset_management">
+                    Asset Management
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to="/register-page" tag={Link}>
-                    Register
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink to="/profile-page" tag={Link}>
-                    Profile
+                  <NavLink to="/login" tag={Link}>
+                    Login
                   </NavLink>
                 </NavItem>
               </Nav>
@@ -80,19 +78,18 @@ class Footer extends React.Component {
             <Col md="3">
               <Nav>
                 <NavItem>
-                  <NavLink href="https://creative-tim.com/contact-us?ref=blkdsr-footer">
+                  <NavLink to="/contact" tag={Link}>
                     Contact Us
+                    {/* <Link to={"/contact"}>Contact Us</Link> */}
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="https://creative-tim.com/about-us?ref=blkdsr-footer">
+                  <NavLink to="/about" tag={Link}>
                     About Us
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="https://creative-tim.com/blog?ref=blkdsr-footer">
-                    Blog
-                  </NavLink>
+                  <NavLink>Blog</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="https://opensource.org/licenses/MIT">
@@ -107,11 +104,14 @@ class Footer extends React.Component {
                 <Button
                   className="btn-icon btn-neutral btn-round btn-simple"
                   color="default"
-                  href="https://twitter.com/creativetim"
+                  href="https://twitter.com/"
                   id="tooltip622135962"
                   target="_blank"
                 >
-                  <FontAwesomeIcon icon={faTwitter} />
+                  <FontAwesomeIcon
+                    style={{ marginTop: "10px" }}
+                    icon={faTwitter}
+                  />
                 </Button>
                 <UncontrolledTooltip delay={0} target="tooltip622135962">
                   Follow us
@@ -119,11 +119,14 @@ class Footer extends React.Component {
                 <Button
                   className="btn-icon btn-neutral btn-round btn-simple"
                   color="default"
-                  href="https://www.facebook.com/creativetim"
+                  href="https://www.facebook.com"
                   id="tooltip230450801"
                   target="_blank"
                 >
-                  <FontAwesomeIcon icon={faFacebook} />
+                  <FontAwesomeIcon
+                    style={{ marginTop: "10px" }}
+                    icon={faFacebook}
+                  />
                 </Button>
                 <UncontrolledTooltip delay={0} target="tooltip230450801">
                   Like us
@@ -131,11 +134,14 @@ class Footer extends React.Component {
                 <Button
                   className="btn-icon btn-neutral btn-round btn-simple"
                   color="default"
-                  href="https://dribbble.com/creativetim"
+                  href="https://dribbble.com/"
                   id="tooltip318450378"
                   target="_blank"
                 >
-                  <FontAwesomeIcon icon={faInstagram} />
+                  <FontAwesomeIcon
+                    style={{ marginTop: "10px" }}
+                    icon={faInstagram}
+                  />
                 </Button>
                 <UncontrolledTooltip delay={0} target="tooltip318450378">
                   Follow us

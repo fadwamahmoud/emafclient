@@ -17,7 +17,7 @@ function Stormwatermap(props) {
   useEffect(() => {
     const fetchData = async () => {
       await axios
-        .get(`${REACT_APP_HEROKU_URL}/stormwater/`, {})
+        .get(`${process.env.REACT_APP_HEROKU_URL}/stormwater/`, {})
         .then((res) => {
           console.log(res.data);
           setState(res.data);

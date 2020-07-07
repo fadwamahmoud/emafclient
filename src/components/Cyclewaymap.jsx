@@ -17,7 +17,7 @@ function Cyclewaymap(props) {
   useEffect(() => {
     const fetchData = async () => {
       await axios
-        .get(`${REACT_APP_HEROKU_URL}/cycleway/`, {})
+        .get(`${process.env.REACT_APP_HEROKU_URL}/cycleway/`, {})
         .then((res) => {
           console.log(res.data);
           setState(res.data);

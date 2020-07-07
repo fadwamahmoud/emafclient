@@ -32,7 +32,7 @@ const Cyclewayform = ({ stateFromDataEntry }) => {
       console.log(data);
 
       axios
-        .post(`${REACT_APP_HEROKU_URL}/cycleway/add`, data)
+        .post(`${process.env.REACT_APP_HEROKU_URL}/cycleway/add`, data)
         .then(({ data }) => {
           console.log(data);
         })

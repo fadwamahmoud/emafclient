@@ -32,7 +32,7 @@ const Forms = ({ stateFromDataEntry }) => {
       console.log(data);
 
       axios
-        .post(`${REACT_APP_HEROKU_URL}/footpath/add`, data)
+        .post(`${process.env.REACT_APP_HEROKU_URL}/footpath/add`, data)
         .then(({ data }) => {
           console.log(data);
         })
