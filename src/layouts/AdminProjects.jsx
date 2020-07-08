@@ -40,17 +40,22 @@ const AdminProjects = (props) => {
       });
   }
   async function deleteProject(id) {
-    const result = await axios.get(
-      `${process.env.REACT_APP_HEROKU_URL}/projects/delete/${id}`
-    );
-    fetchData();
+    axios
+      .get(`${process.env.REACT_APP_HEROKU_URL}/projects/delete/${id}`)
+      .then((data) => {
+        fetchData();
+      });
   }
 
   async function editProject(id, updatedProject) {
-    const { data } = await axios.patch(
-      `${process.env.REACT_APP_HEROKU_URL}/projects/edit/${id}`,
-      updatedProject
-    );
+    axios
+      .patch(
+        `${process.env.REACT_APP_HEROKU_URL}/projects/edit/${id}`,
+        updatedProject
+      )
+      .then((data) => {
+        fetchData();
+      });
   }
   const onDrawCreate = ({ features }) => {
     console.log(features);
@@ -70,8 +75,8 @@ const AdminProjects = (props) => {
   return (
     <>
       <ExamplesNavbar />
-      <div className="page-header container" id="adminProjects">
-        <Row>
+      <div className="" id="adminProjects">
+        <Row style={{ marginRight: "5vw", marginLeft: "5vw" }}>
           <Col lg="8">
             <Card>
               <CardBody>
@@ -94,7 +99,7 @@ const AdminProjects = (props) => {
                   zoom={[13]}
                   style="mapbox://styles/asma163/ckbgkzh7457611io4q6k872re" // eslint-disable-line
                   containerStyle={{
-                    height: "39.5vw",
+                    height: "66vh",
                   }}
                 >
                   <DrawControl onDrawCreate={onDrawCreate} />

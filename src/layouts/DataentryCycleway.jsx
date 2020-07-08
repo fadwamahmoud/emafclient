@@ -17,7 +17,7 @@ const DataentryCycleway = (props) => {
   };
   const changeFn = () => {
     console.log("change");
-    setChange(true);
+    setChange(!change);
   };
 
   return (
@@ -29,7 +29,7 @@ const DataentryCycleway = (props) => {
             <Cyclewaymap
               setStateToFeature={setStateToFeature}
               style="mapbox://styles/asma163/ckbgkzh7457611io4q6k872re"
-              height="40.5vw"
+              height="90vh"
               center={[31.645144, 30.102097]}
               change={change}
             />

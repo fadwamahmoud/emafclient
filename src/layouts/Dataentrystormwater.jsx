@@ -17,7 +17,7 @@ const Dataentrystormwater = (props) => {
   };
   const changeFn = () => {
     console.log("change");
-    setChange(true);
+    setChange(!change);
   };
   return (
     <div>
@@ -29,7 +29,7 @@ const Dataentrystormwater = (props) => {
               setStateToFeature={setStateToFeature}
               center={[31.64086, 30.102094]}
               style="mapbox://styles/asma163/ckbgkzh7457611io4q6k872re"
-              height="39.5vw"
+              height="90vh"
               change={change}
             />
           </CardBody>

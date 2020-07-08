@@ -33,13 +33,17 @@ export default function MaterialTableDemo() {
     if (result.data.message) {
       alert(result.data.message);
     } else {
-      setState({ columns: state.columns, data: [...state.data, result.data] });
+      console.log(result.data);
+      setState({
+        columns: state.columns,
+        data: [...state.data, result.data],
+      });
     }
   }
 
   async function deleteUser(id) {
     const result = await axios.delete(
-      `process.env.REACT_APP_HEROKU_URL/users/${id}`
+      `${process.env.REACT_APP_HEROKU_URL}/users/${id}`
     );
     console.log(result.data);
     setState({ columns: state.columns, data: result.data });

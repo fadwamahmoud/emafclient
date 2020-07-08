@@ -17,7 +17,7 @@ const DataEntry = (props) => {
   };
   const changeFn = () => {
     console.log("change");
-    setChange(true);
+    setChange(!change);
   };
   return (
     <div>
@@ -28,7 +28,7 @@ const DataEntry = (props) => {
             <Maps
               setStateToFeature={setStateToFeature}
               style="mapbox://styles/asma163/ckbgkzh7457611io4q6k872re"
-              height="39.5vw"
+              height="90vh"
               center={[31.639448, 30.101757]}
               change={change}
             />
